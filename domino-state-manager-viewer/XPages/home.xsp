@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex" xmlns:xc="http://www.ibm.com/xsp/custom"
+	beforePageLoad="#{controller.beforePageLoad}" afterPageLoad="#{controller.afterPageLoad}"
+	pageTitle="Home">
+
+	<xc:layout navigationPath="/Home">
+		<xp:this.facets>
+			<xc:linksbar xp:key="LeftColumn"/>
+		</xp:this.facets>
+		
+		<h1>States</h1>
+		<xp:viewPanel value="#{ViewStates.all}" pageName="/viewState.xsp">
+			<xp:viewColumn columnName="$$Key" displayAs="link">
+				<xp:viewColumnHeader value="Key"/>
+			</xp:viewColumn>
+			<xp:viewColumn columnName="PageName">
+				<xp:viewColumnHeader value="Page"/>
+			</xp:viewColumn>
+			<xp:viewColumn columnName="User">
+				<xp:viewColumnHeader value="User"/>
+			</xp:viewColumn>
+		</xp:viewPanel>
+	</xc:layout>
+</xp:view>

@@ -31,10 +31,10 @@ public class home extends BasicXPageController {
 	public void switchRevision() throws Exception {
 		UIViewRootEx2 view = (UIViewRootEx2)FacesContext.getCurrentInstance().getViewRoot();
 		int index = (Integer)ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "index");
-		System.out.println("asked to switch to revision " + index);
+//		System.out.println("asked to switch to revision " + index);
 		Map<String, Object> applicationScope = ExtLibUtil.getApplicationScope();
 		applicationScope.put("revision" + view.getUniqueViewId(), index);
-		System.out.println("Stored revision as 'revision" + view.getUniqueViewId() + "'");
+//		System.out.println("Stored revision as 'revision" + view.getUniqueViewId() + "'");
 	}
 
 }

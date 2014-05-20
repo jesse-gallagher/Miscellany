@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex" xmlns:xc="http://www.ibm.com/xsp/custom"
+	beforePageLoad="#{controller.beforePageLoad}" afterPageLoad="#{controller.afterPageLoad}"
+	pageTitle="View State" readonly="true">
+	
+	<xp:this.dataContexts>
+		<xp:dataContext var="state" value="${ViewStates[param.id]}"/>
+	</xp:this.dataContexts>
+
+	<xc:layout navigationPath="/ViewStates/ViewState">
+		<xp:this.facets>
+			<xc:linksbar xp:key="LeftColumn"/>
+		</xp:this.facets>
+		
+		<xe:formTable formTitle="State">
+			<xe:formRow label="Key">
+				<xp:inputText value="#{state.$$Key}"/>
+			</xe:formRow>
+			<xe:formRow label="Page">
+				<xp:inputText value="#{state.PageName}"/>
+			</xe:formRow>
+			<xe:formRow label="User">
+				<xp:inputText value="#{state.User}"/>
+			</xe:formRow>
+			<xe:formRow label="History">
+				<xe:outline>
+					<xe:this.treeNodes>
+						<xe:beanTreeNode nodeBean="bean.ViewStateHistory"/>
+					</xe:this.treeNodes>
+				</xe:outline>
+			</xe:formRow>
+		</xe:formTable>
+	</xc:layout>
+</xp:view>

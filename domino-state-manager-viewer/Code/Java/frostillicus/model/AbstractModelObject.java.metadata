@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="85257CDE0064CCC2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="222" sequence="5" unid="C55E922811B3D64085257CB8008148BD">
+<created><datetime dst="true">20140412T193207,65-04</datetime></created>
+<modified><datetime dst="true">20140520T142106,00-04</datetime></modified>
+<revised><datetime dst="true">20140412T193222,12-04</datetime></revised>
+<lastaccessed><datetime dst="true">20140520T142105,99-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140520T142105,99-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jesse Gallagher/O=IKSG</name></updatedby>
+<wassignedby><name>CN=Jesse Gallagher/O=IKSG</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>frostillicus/model/AbstractModelObject.java</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>frostillicus/model/AbstractModelObject.java</text></item>
+
+
+</note>

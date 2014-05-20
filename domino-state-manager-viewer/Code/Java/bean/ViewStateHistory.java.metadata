@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="85257CDE0064CCC2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="2c6" sequence="23" unid="B2B0D35CE181401185257CDE0065DE13">
+<created><datetime dst="true">20140520T143239,87-04</datetime></created>
+<modified><datetime dst="true">20140520T144752,69-04</datetime></modified>
+<revised><datetime dst="true">20140520T144752,68-04</datetime></revised>
+<lastaccessed><datetime dst="true">20140520T144752,68-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20140520T143239,87-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Jesse Gallagher/O=IKSG</name></updatedby>
+<wassignedby><name>CN=Jesse Gallagher/O=IKSG</name></wassignedby>
+<item name="$Flags"><text>34567Cg~[</text></item>
+<item name="$TITLE"><text>bean/ViewStateHistory.java</text></item>
+
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>bean/ViewStateHistory.java</text></item>
+
+</note>

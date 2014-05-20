@@ -9,6 +9,9 @@ import javax.faces.FacesException;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.application.StateManager;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeNode;
 
 import com.ibm.xsp.application.ComponentNode;
 import com.ibm.xsp.application.IComponentNode;
@@ -88,9 +91,41 @@ public class DominoStateManager extends StateManagerImpl {
 			doc.put("StateIndex", index);
 			doc.put("User", database.getAncestorSession().getEffectiveUserName());
 			doc.put("PageName", view.getPageName());
+
+			Map<String, Object> applicationScope = ExtLibUtil.getApplicationScope();
+			
+			// Build or create a tree
+			DefaultMutableTreeNode tree = null;
+			
+			Map<String, Object> infoNode = new HashMap<String, Object>();
+			infoNode.put("index", index);
+			infoNode.put("time", new Date());
+			
+			if(doc.hasItem("RevisionTree")) {
+				tree = doc.getItemValue("RevisionTree", DefaultMutableTreeNode.class);
+			} else {
+				tree = new DefaultMutableTreeNode(infoNode);
+			}
+			if(index > 0) {
+				String branchedKey = "branchedrevision" + view.getUniqueViewId();
+				DefaultMutableTreeNode parent = null;
+				if(applicationScope.containsKey(branchedKey)) {
+					// Then we want to find the indexed revision
+					Integer requestedIndex = (Integer)applicationScope.get(branchedKey);
+					parent = findIndexedNode(tree, requestedIndex);
+//					System.out.println("adding to tree node at requested index " + requestedIndex + ": " + parent);
+					applicationScope.remove(branchedKey);
+				} else {
+					// Then we want to find the previous revision
+					parent = findIndexedNode(tree, index-1);
+//					System.out.println("adding to tree node at previous index " + (index-1) + ": " + parent);
+				}
+				parent.add(new DefaultMutableTreeNode(infoNode));
+			}
+			doc.put("RevisionTree", tree);
+			
 			doc.save();
 			
-			Map<String, Object> applicationScope = ExtLibUtil.getApplicationScope();
 			Map<String, Integer> stateHistories = null;
 			if(!applicationScope.containsKey("stateHistories")) {
 				stateHistories = new HashMap<String, Integer>();
@@ -105,7 +140,7 @@ public class DominoStateManager extends StateManagerImpl {
 			print("--------------------------");
 
 			return serializedView;
-		} catch(Exception e) { throw new RuntimeException(e); }
+		} catch(Exception e) { e.printStackTrace(); throw new RuntimeException(e); }
 	}
 
 	@SuppressWarnings("unchecked")
@@ -134,11 +169,10 @@ public class DominoStateManager extends StateManagerImpl {
 				Map<String, Object> applicationScope = ExtLibUtil.getApplicationScope();
 				int index = -1;
 				String revisionKey = "revision" + uniqueViewId;
-				System.out.println("looking for requested revision as '" + revisionKey + "'");
-				if(applicationScope.containsKey("revision" + uniqueViewId)) {
-					index = (Integer)applicationScope.get("revision" + uniqueViewId);
-					applicationScope.remove("revision" + uniqueViewId);
-					System.out.println("loading requested revision " + index);
+				if(applicationScope.containsKey(revisionKey)) {
+					index = (Integer)applicationScope.get(revisionKey);
+					applicationScope.remove(revisionKey);
+					applicationScope.put("branched" + revisionKey, index);
 				} else {
 					index = doc.getItemValueInteger("StateIndex");
 				}
@@ -195,6 +229,20 @@ public class DominoStateManager extends StateManagerImpl {
 		String databaseName = context.getProperty("frostillicus.dominostatemanager.database");
 		Session session = (Session)JSFUtil.getSession();
 		return session.getDatabase(databaseName);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private DefaultMutableTreeNode findIndexedNode(DefaultMutableTreeNode tree, Integer index) {
+		Enumeration<DefaultMutableTreeNode> enumeration = tree.breadthFirstEnumeration();
+		while(enumeration.hasMoreElements()) {
+			DefaultMutableTreeNode node = enumeration.nextElement();
+			Map<String, Object> infoNode = (Map<String, Object>)node.getUserObject();
+//			System.out.println("comparing index " + index + " to node containing " + node);
+			if(infoNode.get("index").equals(index)) {
+				return node;
+			}
+		}
+		return null;
 	}
 
 	/* ******************************************************************************************
