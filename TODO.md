@@ -11,3 +11,5 @@ Domino StateManager
 * Agent to clean old state docs
 * "Branch" metadata to indicate when the user reverted to a previous state and continued from there
 * API for viewing and managing state data
+* "Replay" of changed state over time
+* Adapt applicationScope and sessionScope to also store in NSF
