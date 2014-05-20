@@ -2,23 +2,14 @@ package frostillicus;
 
 import java.io.*;
 import java.util.*;
-import java.net.URI;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 import javax.faces.FacesException;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.application.StateManager;
-import javax.servlet.http.HttpServletRequest;
 
-import com.ibm.commons.util.StringUtil;
 import com.ibm.xsp.application.ComponentNode;
 import com.ibm.xsp.application.IComponentNode;
 import com.ibm.xsp.application.StateManagerImpl;
@@ -28,21 +19,14 @@ import com.ibm.xsp.designer.context.XSPContext;
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 import com.ibm.xsp.util.Delegation;
 import com.ibm.xsp.util.FacesUtil;
-import com.ibm.xsp.util.ClassLoaderUtil;
 
 import org.openntf.domino.*;
-import org.openntf.domino.types.FactorySchema;
-import org.openntf.domino.utils.Factory;
 
 import util.JSFUtil;
 
-@SuppressWarnings("unused")
 public class DominoStateManager extends StateManagerImpl {
 	private final StateManager delegate_;
 	private final static boolean debug_ = false;
-	private final static boolean gzip_ = false;
-
-	private final static String STORAGE_PATH = "tests/dcluster-storage.nsf";
 
 	public DominoStateManager(final StateManager delegate) {
 		super(delegate);
@@ -67,7 +51,6 @@ public class DominoStateManager extends StateManagerImpl {
 			UIViewRootEx view = (UIViewRootEx)facesContext.getViewRoot();
 			view._xspCleanTransientData();
 			String key = view.getUniqueViewId();
-			String viewId = view.getViewId();
 
 			Database database = (Database)JSFUtil.getDatabase();
 			key = database.getReplicaID() + key;
@@ -177,7 +160,7 @@ public class DominoStateManager extends StateManagerImpl {
 
 				print("fetched from Domino");
 				long endTime = System.nanoTime();
-				print("fetch took " + ((endTime - startTime) * 1.0 / 1000 / 1000) + "ms");
+				print("fetch took " + ((endTime - startTime) / 1000.0 / 1000) + "ms");
 				print("--------------------------");
 
 				SerializedView serializedView = new SerializedView(treeStructure, componentStructure);
@@ -208,8 +191,10 @@ public class DominoStateManager extends StateManagerImpl {
 	}
 
 	private Database getStorageDatabase() {
+		XSPContext context = ExtLibUtil.getXspContext();
+		String databaseName = context.getProperty("frostillicus.dominostatemanager.database");
 		Session session = (Session)JSFUtil.getSession();
-		return session.getDatabase("", STORAGE_PATH);
+		return session.getDatabase(databaseName);
 	}
 
 	/* ******************************************************************************************
