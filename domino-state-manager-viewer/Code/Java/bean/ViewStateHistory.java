@@ -1,6 +1,7 @@
 package bean;
 
-import java.util.Enumeration;
+import java.net.URLEncoder;
+import java.util.*;
 
 import javax.faces.context.FacesContext;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -18,9 +19,7 @@ public class ViewStateHistory extends BasicNodeList {
 	public ViewStateHistory() {
 		try {
 			ViewState state = (ViewState)ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "state");
-			System.out.println("want to build tree for " + state);
 			DefaultMutableTreeNode tree = state.document().getItemValue("RevisionTree", DefaultMutableTreeNode.class);
-			System.out.println("tree is " + tree);
 			processNode(tree, null);
 		} catch(Throwable t) {
 			t.printStackTrace();
@@ -31,9 +30,12 @@ public class ViewStateHistory extends BasicNodeList {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void processNode(DefaultMutableTreeNode node, BasicContainerTreeNode root) {
+	private void processNode(DefaultMutableTreeNode node, BasicContainerTreeNode root) throws Exception {
+		Map<String, String> param = (Map<String, String>)ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "param");
 		BasicContainerTreeNode entryChild = new BasicContainerTreeNode();
-		entryChild.setLabel(String.valueOf(node.getUserObject()));
+		Map<String, Object> nodeInfo = (Map<String, Object>)node.getUserObject();
+		entryChild.setLabel(String.valueOf(nodeInfo));
+		entryChild.setHref("/viewStateRevision.xsp?id=" + URLEncoder.encode(param.get("id"), "UTF-8") + "&index=" + nodeInfo.get("index"));
 		if(root == null) {
 			addChild(entryChild);
 		} else {

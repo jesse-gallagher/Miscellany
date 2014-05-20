@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xe="http://www.ibm.com/xsp/coreex" xmlns:xc="http://www.ibm.com/xsp/custom"
+	beforePageLoad="#{controller.beforePageLoad}" afterPageLoad="#{controller.afterPageLoad}"
+	pageTitle="View State" readonly="true">
+	
+	<xp:this.dataContexts>
+		<xp:dataContext var="state" value="${ViewStates[param.id]}"/>
+	</xp:this.dataContexts>
+
+	<xc:layout navigationPath="/ViewStates/ViewState">
+		<xp:this.facets>
+			<xc:linksbar xp:key="LeftColumn"/>
+		</xp:this.facets>
+		
+		<fieldset>
+			<legend>componentStructure</legend>
+			
+			<xe:dumpObject value="#{viewScope.contextComponentStructure}"/>
+		</fieldset>
+	</xc:layout>
+</xp:view>
