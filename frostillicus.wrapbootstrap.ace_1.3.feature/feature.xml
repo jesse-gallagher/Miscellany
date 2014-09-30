@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="frostillicus.wrapbootstrap.ace_1.3.feature"
+      label="WrapBootstrap: Ace - Responsive Admin Template 1.3"
+      version="1.3.0.qualifier"
+      provider-name="WrapBootstrap">
+
+   <description url="https://wrapbootstrap.com/theme/ace-responsive-admin-template-WB0B30DGR">
+      .
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      .
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      .
+   </license>
+
+   <plugin
+         id="frostillicus.wrapbootstrap.ace_1.3"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

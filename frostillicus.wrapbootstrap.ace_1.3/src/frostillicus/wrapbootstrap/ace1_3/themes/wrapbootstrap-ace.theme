@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme extends="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="platform:/plugin/com.ibm.designer.domino.stylekits/schema/stylekit.xsd">
+	<resources>
+		<metaData name="viewport" content="width=device-width, initial-scale=1.0" />
+		<metaData name="apple-mobile-web-app-capable" content="yes" />
+		<metaData name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<dojoModule name="dojo.behavior" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/custom/behavior.js" clientSide="true" />
+
+		<!-- Basic styles -->
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/bootstrap.min.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/font-awesome.min.css" />
+
+		<!-- Fonts -->
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/ace-fonts.css" />
+
+		<!-- Plugin styles -->
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/chosen.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/datepicker.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/bootstrap-timepicker.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/daterangepicker.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/bootstrap-datetimepicker.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/fullcalendar.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/jquery.gritter.css" />
+
+		<!-- Ace styles -->
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/ace.min.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/ace-part2.min.css" rendered="#{javascript:context.getUserAgent().isIE(6,8)}" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/ace-skins.min.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/ace-rtl.min.css" />
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/css/ace-ie.min.css" rendered="#{javascript:context.getUserAgent().isIE(6,8)}" />
+
+		<!-- IE compat scripts -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/html5shiv.js" clientSide="true" rendered="#{javascript:context.getUserAgent().isIE(6,7)}" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/respond.min.js" clientSide="true" rendered="#{javascript:context.getUserAgent().isIE(6,7)}" />
+
+		<!-- Basic scripts -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.min.js" clientSide="true" rendered="#{javascript:!context.getUserAgent().isIE(6,9)}" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery1x.min.js" clientSide="true" rendered="#{javascript:context.getUserAgent().isIE(6,9)}" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/bootstrap.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.hotkeys.min.js" clientSide="true" />
+
+		<!-- Plugin scripts -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/excanvas.min.js" clientSide="true" rendered="#{javascript:context.getUserAgent().isIE(6,8)}" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery-ui.custom.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.ui.touch-punch.min.js" clientSide="true" />
+		<!-- <script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.slimscroll.min.js" clientSide="true"/> -->
+		<!-- <script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.easy-pie-chart.min.js" clientSide="true"/> -->
+		<!-- <script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.sparkline.min.js" clientSide="true"/> -->
+		<!-- <script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/flot/jquery.flot.min.js" clientSide="true"/> -->
+		<!-- <script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/flot/jquery.flot.pie.min.js" clientSide="true"/> -->
+		<!-- <script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/flot/jquery.flot.resize.min.js" clientSide="true"/> -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/chosen.jquery.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/date-time/bootstrap-datepicker.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/date-time/bootstrap-timepicker.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/date-time/moment.min.js" clientSide="true" />
+<!-- 		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/date-time/daterangepicker.min.js" clientSide="true" /> -->
+<!-- 		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/date-time/bootstrap-datetimepicker.min.js" clientSide="true" /> -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/bootstrap-wysiwyg.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/fullcalendar.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.gritter.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/jquery.maskedinput.min.js" clientSide="true" />
+
+		<!-- Ace scripts -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/ace-extra.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/ace-elements.min.js" clientSide="true" />
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/js/ace.min.js" clientSide="true" />
+
+		<!-- Custom setup script -->
+		<script src="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/custom/onload.js" clientSide="true" />
+		
+		<styleSheet href="/.ibmxspres/.extlib/wrapbootstrap-ace-1.3/custom/fixes.css" />
+	</resources>
+
+
+	<!-- Taken liberally from https://raw.github.com/OpenNTF/Bootstrap4XPages/master/eclipse/plugins/org.openntf.xsp.bootstrap/src/org/openntf/xsp/bootstrap/themes/bootstrap.theme -->
+
+	<!-- View Root -->
+	<control>
+		<name>ViewRoot</name>
+		<property>
+			<name>docType</name>
+			<value>html</value>
+		</property>
+		<property>
+			<name>styleClass</name>
+			<value>no-skin</value>
+		</property>
+<!-- 		<property> -->
+<!-- 			<name>rendererType</name> -->
+<!-- 			<value>frostillicus.wrapbootstrap.ace1_3.ViewRoot</value> -->
+<!-- 		</property> -->
+	</control>
+
+	<!-- XPages Buttons -->
+	<control>
+		<name>Button</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Command</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Submit</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-primary</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+
+	<!-- Extra Bootstrap Buttons -->
+	<control>
+		<name>Button.Cancel</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-danger</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Primary</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-primary</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Danger</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-danger</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Warning</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-warning</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Success</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-success</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Info</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-info</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+	<control>
+		<name>Button.Inverse</name>
+		<property>
+			<name>styleClass</name>
+			<value>btn btn-inverse</value>
+		</property>
+		<property>
+			<name>outerStyleClass</name>
+			<value>btn-group</value>
+		</property>
+	</control>
+
+	<!-- Bootstrap Images -->
+	<control>
+		<name>Image.Rounded</name>
+		<property>
+			<name>styleClass</name>
+			<value>img-rounded</value>
+		</property>
+	</control>
+	<control>
+		<name>Image.Circle</name>
+		<property>
+			<name>styleClass</name>
+			<value>img-circle</value>
+		</property>
+	</control>
+	<control>
+		<name>Image.Polaroid</name>
+		<property>
+			<name>styleClass</name>
+			<value>img-polaroid</value>
+		</property>
+	</control>
+
+	<!-- Basic Message -->
+	<control>
+		<name>Message</name>
+		<property>
+			<name>styleClass</name>
+			<value>text-error</value>
+		</property>
+	</control>
+
+	<!-- Basic Messages -->
+	<control>
+		<name>Messages</name>
+		<property>
+			<name>styleClass</name>
+			<value>text-error unstyled</value>
+		</property>
+	</control>
+
+	<!-- Section -->
+	<control>
+		<name>Section</name>
+		<property>
+			<name>styleClass</name>
+			<value>xspSection</value>
+		</property>
+		<property>
+			<name>expandedImage</name>
+			<value>/.ibmxspres/.extlib/bootstrap/icons/section_expanded.png</value>
+		</property>
+		<property>
+			<name>collapsedImage</name>
+			<value>/.ibmxspres/.extlib/bootstrap/icons/section_collapsed.png</value>
+		</property>
+	</control>
+
+	<!-- DataTables -->
+	<control>
+		<name>DataTable</name>
+		<property>
+			<name>styleClass</name>
+			<value>table table-striped table-bordered table-condensed dataTable</value>
+		</property>
+		<property>
+			<name>rows</name>
+			<value>30</value>
+		</property>
+		<property>
+			<name>unreadMarksClass</name>
+			<value />
+		</property>
+		<property>
+			<name>readMarksClass</name>
+			<value />
+		</property>
+	</control>
+
+	<!-- Table Column -->
+	<control>
+		<name>Column</name>
+		<property>
+			<name>styleClass</name>
+			<value />
+		</property>
+	</control>
+
+	<!-- View DataTable -->
+	<control>
+		<name>DataTable.ViewPanel</name>
+		<property>
+			<name>dataTableStyleClass</name>
+			<value>table table-striped table-bordered table-condensed dataTable xspDataTable</value>
+		</property>
+		<property>
+			<name>rows</name>
+			<value>30</value>
+		</property>
+		<property>
+			<name>unreadMarksClass</name>
+			<value />
+		</property>
+		<property>
+			<name>readMarksClass</name>
+			<value />
+		</property>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.AceViewPanelRenderer</value>
+		</property>
+	</control>
+
+	<!-- View Column -->
+	<control>
+		<name>Column.View</name>
+		<property>
+			<name>viewCheckboxStyle</name>
+			<value>margin: 0px 2px; height: 12px;</value>
+		</property>
+		<property>
+			<name>expandedImage</name>
+			<value>/.ibmxspres/.extlib/bootstrap/icons/view_expanded.png</value>
+		</property>
+		<property>
+			<name>collapsedImage</name>
+			<value>/.ibmxspres/.extlib/bootstrap/icons/view_collapsed.png</value>
+		</property>
+	</control>
+
+	<!-- View Column checkbox -->
+	<control>
+		<name>CheckBox.ViewColumn</name>
+		<property>
+			<name>styleClass</name>
+			<value>checkbox</value>
+		</property>
+	</control>
+
+	<!-- ================== View Column Header ================================ -->
+
+	<!-- View Column Header checkbox -->
+	<control>
+		<name>CheckBox.ViewColumnHeader</name>
+		<property>
+			<name>styleClass</name>
+			<value>checkbox</value>
+		</property>
+	</control>
+
+	<!-- ======================================================================= Tab panel controls A tab has some virtual properties when dealing with themes: 
+		startStyleClass: the style class to apply to the first tab middleStyleClass: the style class to apply to the tab that are neither first or last endStyleClass: 
+		the style class to apply to the tab column Those properties take priority over the styleClass when defined in a theme ======================================================================= -->
+
+	<!-- Tabbed Panel -->
+	<control>
+		<name>TabbedPanel</name>
+		<property>
+			<name>styleClass</name>
+			<value>nav nav-tabs</value>
+		</property>
+	</control>
+
+	<!-- Tab -->
+	<control>
+		<name>Tab.TabbedPanel</name>
+		<property>
+			<name>styleClass</name>
+			<value>n5</value>
+		</property>
+		<property>
+			<name>selectedTabStyleClass</name>
+			<value>active</value>
+		</property>
+	</control>
+
+	<!-- Application Layout -->
+	<control>
+		<name>ApplicationLayout</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.layout.AceLayout</value>
+		</property>
+	</control>
+
+	<!-- Outline -->
+	<control>
+		<name>Outline.BreadCrumbs</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.outline.AceBreadCrumbs</value>
+		</property>
+	</control>
+	<control>
+		<name>Outline.Navigator</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.outline.AceOutlineMenu</value>
+		</property>
+	</control>
+
+	<!-- ================== Pager / PagerControl ================================ -->
+
+	<!-- Pager -->
+	<control>
+		<name>Pager</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.AcePagerRenderer</value>
+		</property>
+		<property>
+			<name>styleClass</name>
+			<value />
+		</property>
+	</control>
+
+
+	<!-- ================== Form layout and controls ================================ -->
+	<control>
+		<name>FormLayout.FormTable</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.data.AceFormTableRenderer</value>
+		</property>
+	</control>
+	<control>
+		<name>InputField.EditBox</name>
+		<property>
+			<name>styleClass</name>
+			<value>form-control</value>
+		</property>
+	</control>
+	<control>
+		<name>InputField.DateTimePicker</name>
+		<property>
+			<name>styleClass</name>
+			<value>form-control</value>
+		</property>
+	</control>
+	<control>
+		<name>Dojo.Form</name>
+		<property>
+			<name>styleClass</name>
+			<value>form-control</value>
+		</property>
+	</control>
+	<control>
+		<name>ListBox</name>
+		<property>
+			<name>styleClass</name>
+			<value>form-control</value>
+		</property>
+	</control>
+	<control>
+		<name>ComboBox</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>chzn-select form-control</value>
+		</property>
+	</control>
+	<control>
+		<name>ListBox</name>
+		<property mode="concat">
+			<name>styleClass</name>
+			<value>chzn-select form-control</value>
+		</property>
+	</control>
+
+	<!-- ================== Form layout and controls ================================ -->
+	<control>
+		<name>Container.Widget</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.containers.AceWidgetContainerRenderer</value>
+		</property>
+	</control>
+
+	<!-- ================== Messages ================================ -->
+	<control>
+		<name>Message.List</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.AceMessagesRenderer</value>
+		</property>
+	</control>
+	<control>
+		<name>Messages.Confirmation</name>
+		<property>
+			<name>styleClass</name>
+			<value>alert alert-success</value>
+		</property>
+	</control>
+	<control>
+		<name>Messages.Error</name>
+		<property>
+			<name>styleClass</name>
+			<value>alert alert-danger</value>
+		</property>
+	</control>
+	<control>
+		<name>Messages.Information</name>
+		<property>
+			<name>styleClass</name>
+			<value>alert alert-info</value>
+		</property>
+	</control>
+	<control>
+		<name>Messages.Warning</name>
+		<property>
+			<name>styleClass</name>
+			<value>alert alert-warning</value>
+		</property>
+	</control>
+	
+	<!-- ================== Forum ================================ -->
+	<control>
+		<name>DataIterator.ForumView</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.AceForumViewRenderer</value>
+		</property>
+	</control>
+	
+	<control>
+		<name>FormLayout.ForumPost</name>
+		<property>
+			<name>rendererType</name>
+			<value>frostillicus.wrapbootstrap.ace1_3.AceForumPostRenderer</value>
+		</property>
+	</control>
+</theme>

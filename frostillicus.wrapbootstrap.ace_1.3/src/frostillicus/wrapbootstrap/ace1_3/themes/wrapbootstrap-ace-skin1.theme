@@ -1,0 +1,10 @@
+<theme extends="wrapbootstrap-ace-1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="platform:/plugin/com.ibm.designer.domino.stylekits/schema/stylekit.xsd">
+	<!-- View Root -->
+	<control>
+		<name>ViewRoot</name>
+		<property>
+			<name>styleClass</name>
+			<value>skin-1</value>
+		</property>
+	</control>
+</theme>

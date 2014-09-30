@@ -1,0 +1,9 @@
+/* Use the normal link cursor for pagers */
+.pagination > li > a {
+	cursor: pointer;
+}
+
+/* Allow for separator tree nodes in the linksbar */
+.nav > li > div.divider {
+	height: 20px;
+}

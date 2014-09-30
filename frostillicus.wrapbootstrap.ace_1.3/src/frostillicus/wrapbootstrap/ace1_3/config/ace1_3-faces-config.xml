@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config>
+	<render-kit>
+		<renderer>
+			<component-family>javax.faces.ViewRoot</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.ViewRoot</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.AceViewRootRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.ibm.xsp.extlib.layout.ApplicationLayout</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.layout.AceLayout</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.layout.AceLayoutRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.ibm.xsp.extlib.Outline</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.outline.AceBreadCrumbs</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.outline.AceBreadCrumbsRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.ibm.xsp.extlib.Outline</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.outline.AceOutlineMenu</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.outline.AceOutlineMenuRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.ibm.xsp.Pager</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.AcePagerRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.AcePagerRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>javax.faces.Data</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.AceViewPanelRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.AceViewPanelRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>com.ibm.xsp.extlib.data.FormLayout</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.data.AceFormTableRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.data.AceFormTableRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>javax.faces.Panel</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.containers.AceWidgetContainerRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.containers.AceWidgetContainerRenderer</renderer-class>
+		</renderer>
+		<renderer>
+			<component-family>javax.faces.Messages</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.AceMessagesRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.AceMessagesRenderer</renderer-class>
+		</renderer>
+		
+		<renderer>
+			<component-family>com.ibm.xsp.DataIterator</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.AceForumViewRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.data.AceForumViewRenderer</renderer-class>
+		</renderer>
+  		<renderer>
+			<component-family>com.ibm.xsp.extlib.data.ForumPost</component-family>
+			<renderer-type>frostillicus.wrapbootstrap.ace1_3.AceForumPostRenderer</renderer-type>
+			<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.data.AceForumPostRenderer</renderer-class>
+		</renderer>
+		
+    	<!-- This has to be done because the date/time helper sets the rendererType statically -->
+        <renderer>
+        	<component-family>javax.faces.Input</component-family>
+        	<renderer-type>com.ibm.xsp.DateTimeHelper</renderer-type>
+        	<renderer-class>frostillicus.wrapbootstrap.ace1_3.renderkit.AceDateTimeHelperRenderer</renderer-class>
+        </renderer>
+	</render-kit>
+</faces-config>
