@@ -83,6 +83,8 @@ Dir["UpdateSite/plugins/*.jar"].each do |file|
     requires: requires
   }
   
+  jarFile.close
+  
 end
 
 # Exit early if there are no bundles to convert
