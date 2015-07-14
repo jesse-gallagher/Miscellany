@@ -1,5 +1,19 @@
 #!/usr/bin/env jruby
 
+=begin
+  Licensed under the Apache License, Version 2.0 (the "License"); 
+  you may not use this file except in compliance with the License. 
+  You may obtain a copy of the License at:
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software 
+  distributed under the License is distributed on an "AS IS" BASIS, 
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or 
+  implied. See the License for the specific language governing 
+  permissions and limitations under the License.
+=end
+
 require "java"
 require "cgi"
 require "optparse"
@@ -23,15 +37,35 @@ bundles = {}
 # Read in all the bundles for later use
 Dir["UpdateSite/plugins/*.jar"].each do |file|
   jarFile = Java::java.util.jar.JarFile.new(file)
+  
+  # META-INF/MANIFEST.MF
   manifest = jarFile.manifest
+  
+  # There may be a plugin.properties file containing the plugin and provider names
+  propsName = !manifest.main_attributes.get_value("Fragment-Host").nil? ? "fragment" :
+              !manifest.main_attributes.get_value("Eclipse-SystemBundle").nil? ? "systembundle" :
+              "plugin"
+  props = Java::java.util.Properties.new
+  propsEntry = jarFile.get_jar_entry("#{propsName}.properties")
+  if propsEntry
+    is = jarFile.get_input_stream(propsEntry)
+    props.load(is)
+    is.close
+  end
   
   artifactId = manifest.main_attributes.get_value("Bundle-SymbolicName").gsub(/;.*/, "")
   version = manifest.main_attributes.get_value("Bundle-Version")
   name = manifest.main_attributes.get_value("Bundle-Name")
   name ||= artifactId
+  if name.start_with? "%"
+    name = props[name[1..name.length]]
+  end
   
   vendor = manifest.main_attributes.get_value("Bundle-Vendor")
   vendor ||= ""
+  if vendor.start_with? "%"
+    vendor = props[vendor[1..vendor.length]]
+  end
   
   # Figure out its dependencies based on Require-Bundle
   requires = manifest.main_attributes.get_value("Require-Bundle")
@@ -78,14 +112,14 @@ END
 
     
     if not bundle[:vendor].empty?
-      xml << <<END
+      xml << "
   <organization>
     <name>#{CGI.escapeHTML(bundle[:vendor])}</name>
   </organization>
-END
+"
     end
   
-    xml << <<END
+    xml << "
   <licenses>
     <license>
       <name>International License Agreement for Non-Warranted Programs</name>
@@ -94,29 +128,29 @@ END
     </license>
   </licenses>
   
-END
+"
 
   if not bundle[:requires].empty?
-    xml += "  <dependencies>\n"
+    xml << "  <dependencies>\n"
     
     bundle[:requires].each do |bundleName|
       rbundle = bundles[bundleName]
       
       if not rbundle.nil?
-        xml += <<END
+        xml << "
     <dependency>
       <groupId>com.ibm.xsp</groupId>
       <artifactId>#{CGI.escapeHTML(rbundle[:artifactId])}</artifactId>
       <version>#{CGI.escapeHTML(rbundle[:version])}</version>
     </dependency>
-END
+"
       end
     end
     
-    xml += "  </dependencies>\n"
+    xml << "  </dependencies>\n"
   end
 
-  xml += "</project>"
+  xml << "</project>"
   
   File.write("temp.pom", xml, 0, open_args: "w")
   
